@@ -8,7 +8,11 @@ import b8 from "@/assets/buildings8.jpg";
 
 const slides = [
   { title: "Build Dreams Into Reality", subtitle: "With trusted real estate solutions", image: b3 },
-  { title: "Engineering Tomorrow's Skylines", subtitle: "End-to-end construction expertise", image: b6 },
+  {
+    title: "Engineering Tomorrow's Skylines",
+    subtitle: "End-to-end construction expertise",
+    image: b6,
+  },
   { title: "Crafted With Precision", subtitle: "Quality that stands the test of time", image: b7 },
   { title: "Your Vision, Our Foundation", subtitle: "Partner with industry leaders", image: b8 },
 ];
@@ -46,9 +50,7 @@ export function Hero() {
               onClick={() => setI(idx)}
               aria-label={`Slide ${idx + 1}`}
               className={`rounded-full transition-all ${
-                idx === i
-                  ? "h-4 w-14 bg-white"
-                  : "h-4 w-4 border-2 border-white bg-transparent"
+                idx === i ? "h-4 w-14 bg-white" : "h-4 w-4 border-2 border-white bg-transparent"
               }`}
             />
           ))}

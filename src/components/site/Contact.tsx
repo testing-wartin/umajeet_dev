@@ -21,19 +21,16 @@ export function Contact() {
   const [status, setStatus] = useState<Status>("idle");
   const [statusMessage, setStatusMessage] = useState("");
 
-  const selectedCountry =
-    countries.find((c) => c.isoCode === selectedIso) ?? countries[0];
+  const selectedCountry = countries.find((c) => c.isoCode === selectedIso) ?? countries[0];
 
   const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
-  const emailError = emailTouched && email.trim() !== "" && !emailValid
-    ? "Please enter a valid email address."
-    : undefined;
+  const emailError =
+    emailTouched && email.trim() !== "" && !emailValid
+      ? "Please enter a valid email address."
+      : undefined;
 
   const isFormValid =
-    firstName.trim() !== "" &&
-    lastName.trim() !== "" &&
-    emailValid &&
-    phoneNumber.trim() !== "";
+    firstName.trim() !== "" && lastName.trim() !== "" && emailValid && phoneNumber.trim() !== "";
 
   const onSubmit = async (e: React.SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -125,12 +122,7 @@ export function Contact() {
                 value={firstName}
                 onChange={setFirstName}
               />
-              <Field
-                label="Last Name"
-                placeholder="Doe"
-                value={lastName}
-                onChange={setLastName}
-              />
+              <Field label="Last Name" placeholder="Doe" value={lastName} onChange={setLastName} />
             </div>
 
             {/* Email / Phone row */}
@@ -154,9 +146,7 @@ export function Contact() {
 
             {/* Subject */}
             <div className="mt-8">
-              <p className="text-[14px] font-semibold text-[#0c1b2e]">
-                Select Subject?
-              </p>
+              <p className="text-[14px] font-semibold text-[#0c1b2e]">Select Subject?</p>
               <div className="mt-3 flex flex-wrap gap-x-6 gap-y-3">
                 {subjects.map((s) => (
                   <label
@@ -178,9 +168,7 @@ export function Contact() {
 
             {/* Message */}
             <div className="mt-8">
-              <label className="text-[14px] font-semibold text-[#666666]">
-                Message
-              </label>
+              <label className="text-[14px] font-semibold text-[#666666]">Message</label>
               <textarea
                 name="message"
                 rows={3}
@@ -195,9 +183,7 @@ export function Contact() {
               {status === "success" && (
                 <p className="text-[14px] text-green-600">{statusMessage}</p>
               )}
-              {status === "error" && (
-                <p className="text-[14px] text-red-600">{statusMessage}</p>
-              )}
+              {status === "error" && <p className="text-[14px] text-red-600">{statusMessage}</p>}
               <button
                 type="submit"
                 disabled={!isFormValid || status === "loading"}
@@ -268,18 +254,13 @@ function PhoneField({
 
   const filtered = search.trim()
     ? countries.filter(
-        (c) =>
-          c.name.toLowerCase().includes(search.toLowerCase()) ||
-          c.dialCode.includes(search)
+        (c) => c.name.toLowerCase().includes(search.toLowerCase()) || c.dialCode.includes(search),
       )
     : countries;
 
   useEffect(() => {
     function handleOutsideClick(e: MouseEvent) {
-      if (
-        containerRef.current &&
-        !containerRef.current.contains(e.target as Node)
-      ) {
+      if (containerRef.current && !containerRef.current.contains(e.target as Node)) {
         setOpen(false);
         setSearch("");
       }
@@ -290,9 +271,7 @@ function PhoneField({
 
   return (
     <div>
-      <label className="text-[14px] font-semibold text-[#666666]">
-        Phone Number
-      </label>
+      <label className="text-[14px] font-semibold text-[#666666]">Phone Number</label>
       <div className="mt-1 flex items-end gap-1 border-b border-[#d9d9d9] focus-within:border-[#0c1b2e]">
         {/* Country code picker */}
         <div ref={containerRef} className="relative shrink-0">
@@ -303,9 +282,7 @@ function PhoneField({
           >
             <span className="font-medium">{selected.dialCode}</span>
             <ChevronDown
-              className={`h-3.5 w-3.5 text-[#666] transition-transform ${
-                open ? "rotate-180" : ""
-              }`}
+              className={`h-3.5 w-3.5 text-[#666] transition-transform ${open ? "rotate-180" : ""}`}
             />
           </button>
 
@@ -326,9 +303,7 @@ function PhoneField({
               {/* List */}
               <ul className="max-h-52 overflow-y-auto">
                 {filtered.length === 0 && (
-                  <li className="px-3 py-3 text-[13px] text-[#999]">
-                    No results
-                  </li>
+                  <li className="px-3 py-3 text-[13px] text-[#999]">No results</li>
                 )}
                 {filtered.map((c) => (
                   <li key={c.isoCode}>
@@ -343,12 +318,8 @@ function PhoneField({
                         c.isoCode === selectedIso ? "bg-[#f0f0f0] font-medium" : ""
                       }`}
                     >
-                      <span className="text-[15px] leading-none">
-                        {flagEmoji(c.isoCode)}
-                      </span>
-                      <span className="w-10 shrink-0 text-[#666]">
-                        {c.dialCode}
-                      </span>
+                      <span className="text-[15px] leading-none">{flagEmoji(c.isoCode)}</span>
+                      <span className="w-10 shrink-0 text-[#666]">{c.dialCode}</span>
                       <span className="truncate text-[#0c1b2e]">{c.name}</span>
                     </button>
                   </li>
@@ -362,9 +333,7 @@ function PhoneField({
         <input
           type="tel"
           value={phoneNumber}
-          onChange={(e) =>
-            onPhoneChange(e.target.value.replace(/[^0-9\s\-\(\)]/g, ""))
-          }
+          onChange={(e) => onPhoneChange(e.target.value.replace(/[^0-9\s\-\(\)]/g, ""))}
           placeholder="98765 43210"
           maxLength={15}
           className="min-w-0 flex-1 bg-transparent pb-3 text-[14px] text-[#0c1b2e] placeholder:text-[#aaa] focus:outline-none"

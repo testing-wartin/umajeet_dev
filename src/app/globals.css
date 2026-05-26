@@ -81,12 +81,14 @@
   --sidebar-accent-foreground: oklch(0.22 0.05 263);
   --sidebar-border: oklch(0.92 0.01 255);
   --sidebar-ring: oklch(0.55 0.21 264);
-  --brand-navy: #0E1B33;
-  --brand-blue: #1D4ED8;
-  --brand-light: #E8EEF8;
+  --brand-navy: #0e1b33;
+  --brand-blue: #1d4ed8;
+  --brand-light: #e8eef8;
 }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+}
 
 .dark {
   --background: oklch(0.129 0.042 264.695);

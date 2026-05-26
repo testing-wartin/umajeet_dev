@@ -11,7 +11,9 @@ import { SectionHeading } from "./SectionHeading";
 
 function Card({ img, title, className = "" }: { img: string; title: string; className?: string }) {
   return (
-    <div className={`relative overflow-hidden rounded-[25px] transition-all duration-300 hover:-translate-y-3 hover:shadow-[0_10px_10px_rgba(0.90,0.90,0.90,0.90)] hover:z-10 ${className}`}>
+    <div
+      className={`relative overflow-hidden rounded-[25px] transition-all duration-300 hover:-translate-y-3 hover:shadow-[0_10px_10px_rgba(0.90,0.90,0.90,0.90)] hover:z-10 ${className}`}
+    >
       <img src={img} alt={title} className="h-full w-full object-cover" />
       <div className="absolute bottom-0 inset-x-0 bg-[#0c1b2e] py-5 px-4 text-center">
         <span className="text-[26px] md:text-[32px] font-bold text-white">{title}</span>
@@ -34,7 +36,11 @@ export function Services() {
           </div>
 
           {/* Row 2: Civil full width */}
-          <Card img={civil.src} title="Civil Construction & Contracting (Residential, Commercial, Industrial)" className="h-[570px]" />
+          <Card
+            img={civil.src}
+            title="Civil Construction & Contracting (Residential, Commercial, Industrial)"
+            className="h-[570px]"
+          />
 
           {/* Row 3: Roads [41fr] + Horticulture [59fr] */}
           <div className="grid gap-5 md:grid-cols-[41fr_59fr]">

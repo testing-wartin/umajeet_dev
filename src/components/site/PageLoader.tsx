@@ -23,7 +23,6 @@ export function PageLoader() {
 
   return (
     <div className="fixed inset-0 z-[9999] bg-white overflow-y-auto">
-
       {/* Navbar */}
       <div className="h-[88px] border-b border-gray-100 flex items-center px-8 gap-8">
         <Bone className="h-12 w-36" />
@@ -191,7 +190,6 @@ export function PageLoader() {
           ))}
         </div>
       </div>
-
     </div>
   );
 }

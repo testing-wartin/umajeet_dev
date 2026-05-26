@@ -11,14 +11,19 @@ interface Props {
   height?: number;
 }
 
-export function ImageSkeleton({ src, alt, className = "", wrapperClassName = "", width, height }: Props) {
+export function ImageSkeleton({
+  src,
+  alt,
+  className = "",
+  wrapperClassName = "",
+  width,
+  height,
+}: Props) {
   const [loaded, setLoaded] = useState(false);
 
   return (
     <div className={`relative overflow-hidden ${wrapperClassName}`}>
-      {!loaded && (
-        <div className="absolute inset-0 animate-pulse bg-gray-200" />
-      )}
+      {!loaded && <div className="absolute inset-0 animate-pulse bg-gray-200" />}
       <img
         src={src}
         alt={alt}

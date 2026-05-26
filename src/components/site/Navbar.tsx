@@ -43,7 +43,13 @@ export function Navbar() {
   return (
     <header className="fixed inset-x-0 top-0 z-50 bg-white py-6 md:py-8 shadow-sm">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 md:px-8 cursor-pointer">
-        <a href="#home" onClick={(e) => { e.preventDefault(); go("#home"); }}>
+        <a
+          href="#home"
+          onClick={(e) => {
+            e.preventDefault();
+            go("#home");
+          }}
+        >
           <img src={logo.src} alt="Umajeet Infratech" className="h-14 w-auto" />
         </a>
 
@@ -52,7 +58,10 @@ export function Navbar() {
             <a
               key={l.href}
               href={l.href}
-              onClick={(e) => { e.preventDefault(); go(l.href); }}
+              onClick={(e) => {
+                e.preventDefault();
+                go(l.href);
+              }}
               className={`text-[18px] font-bold transition-colors hover:text-[#1D4ED8] ${
                 active === l.href ? "text-[#1D4ED8]" : "text-[#0c1b2e]"
               }`}
@@ -90,7 +99,10 @@ export function Navbar() {
             <a
               key={l.href}
               href={l.href}
-              onClick={(e) => { e.preventDefault(); go(l.href); }}
+              onClick={(e) => {
+                e.preventDefault();
+                go(l.href);
+              }}
               className={`rounded-md px-3 py-2 text-[18px] font-bold text-[#0c1b2e] hover:bg-gray-100 ${
                 active === l.href ? "text-[#1D4ED8]" : ""
               }`}

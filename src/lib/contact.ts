@@ -12,9 +12,7 @@ export interface ContactResult {
   error?: string;
 }
 
-export async function submitContactForm(
-  payload: ContactPayload
-): Promise<ContactResult> {
+export async function submitContactForm(payload: ContactPayload): Promise<ContactResult> {
   try {
     const res = await fetch("/api/contact", {
       method: "POST",

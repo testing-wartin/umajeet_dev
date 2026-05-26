@@ -51,13 +51,12 @@ function validate(body: ContactBody): string | null {
 }
 
 export async function POST(req: NextRequest) {
-  const ip =
-    req.headers.get("x-forwarded-for")?.split(",")[0].trim() ?? "unknown";
+  const ip = req.headers.get("x-forwarded-for")?.split(",")[0].trim() ?? "unknown";
 
   if (isRateLimited(ip)) {
     return NextResponse.json(
       { error: "Too many requests. Please wait a minute and try again." },
-      { status: 429 }
+      { status: 429 },
     );
   }
 
@@ -78,7 +77,7 @@ export async function POST(req: NextRequest) {
     console.error("CONTACT_RECEIVER_EMAIL environment variable is not set.");
     return NextResponse.json(
       { error: "Server configuration error. Please contact us directly." },
-      { status: 500 }
+      { status: 500 },
     );
   }
 
@@ -108,7 +107,7 @@ export async function POST(req: NextRequest) {
     console.error("Resend send error:", err);
     return NextResponse.json(
       { error: "Failed to send your message. Please try again later." },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
