@@ -10,11 +10,11 @@ export function PageLoader() {
   const [visible, setVisible] = useState(true);
 
   useEffect(() => {
+    const hide = () => setVisible(false);
     if (document.readyState === "complete") {
-      setVisible(false);
+      hide();
       return;
     }
-    const hide = () => setVisible(false);
     window.addEventListener("load", hide);
     return () => window.removeEventListener("load", hide);
   }, []);

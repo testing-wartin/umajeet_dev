@@ -4,7 +4,7 @@ export interface ContactPayload {
   email: string;
   phone: string;
   subject: string;
-  message: string;
+  message?: string;
 }
 
 export interface ContactResult {

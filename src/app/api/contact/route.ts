@@ -30,7 +30,7 @@ interface ContactBody {
   email: string;
   phone?: string;
   subject: string;
-  message: string;
+  message?: string;
 }
 
 function validate(body: ContactBody): string | null {
@@ -44,8 +44,8 @@ function validate(body: ContactBody): string | null {
     return "A valid email address is required.";
   if (!VALID_SUBJECTS.includes(subject as (typeof VALID_SUBJECTS)[number]))
     return "Invalid subject selected.";
-  if (!message?.trim() || message.trim().length > 1000)
-    return "Message is required and must be under 1000 characters.";
+  if (message && message.trim().length > 1000)
+    return "Message must be under 1000 characters.";
 
   return null;
 }
@@ -90,8 +90,7 @@ export async function POST(req: NextRequest) {
     `Phone: ${phone?.trim() || "Not provided"}`,
     `Subject: ${subject}`,
     ``,
-    `Message:`,
-    message.trim(),
+    `Message: ${message?.trim() || "Not provided"}`,
   ].join("\n");
 
   try {
