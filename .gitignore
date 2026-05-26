@@ -1,0 +1,33 @@
+# Next.js
+.next/
+out/
+
+# Lovable
+.lovable/
+
+# Dependencies
+node_modules/
+
+# Production build
+dist/
+
+# Env files
+*.local
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+npm-debug.log*
+
+# Editor
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
