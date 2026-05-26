@@ -44,8 +44,7 @@ function validate(body: ContactBody): string | null {
     return "A valid email address is required.";
   if (!VALID_SUBJECTS.includes(subject as (typeof VALID_SUBJECTS)[number]))
     return "Invalid subject selected.";
-  if (message && message.trim().length > 1000)
-    return "Message must be under 1000 characters.";
+  if (message && message.trim().length > 1000) return "Message must be under 1000 characters.";
 
   return null;
 }
