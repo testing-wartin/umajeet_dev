@@ -13,9 +13,9 @@ const leaders = [
     image: owner1,
   },
   {
-    name: "Mrs. Uma",
+    name: "Mr. Umashankar",
     role: "Director",
-    bio: "Mrs. Uma drives operational excellence and people-first leadership at Umajeet Infratech. Her hands-on approach to project governance, vendor management, and client relationships ensures every engagement delivers measurable value.\n\nWith deep expertise in compliance, sustainability and stakeholder management, she champions a culture of accountability, safety and continuous improvement across all verticals of the company.",
+    bio: "Mr. Umashankar stands as a strong pillar of operational excellence within Umajeet Infratech, playing a pivotal role in ensuring that every project is executed with precision and reliability. His leadership in planning, coordination, and seamless delivery has enabled the organization to consistently meet complex challenges while maintaining the highest standards of quality and safety.\n\nWith a deep focus on efficiency, reliability, and client satisfaction, Mr. Umashankar streamlines processes, optimizes resources, and drives teams to deliver on commitments without compromise. His ability to balance strategic oversight with ground-level execution makes him a trusted leader, ensuring that projects are not only completed on time but also exceed client expectations.",
     image: owner2,
   },
 ];
