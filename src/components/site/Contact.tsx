@@ -333,7 +333,7 @@ function PhoneField({
         <input
           type="tel"
           value={phoneNumber}
-          onChange={(e) => onPhoneChange(e.target.value.replace(/[^0-9\s\-\(\)]/g, ""))}
+          onChange={(e) => onPhoneChange(e.target.value.replace(/[^0-9\s\-()]/g, ""))}
           placeholder="98765 43210"
           maxLength={15}
           className="min-w-0 flex-1 bg-transparent pb-3 text-[14px] text-[#0c1b2e] placeholder:text-[#aaa] focus:outline-none"
